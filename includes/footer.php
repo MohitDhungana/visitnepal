@@ -14,7 +14,7 @@
 									<div class="footer_contact_title">give us a call</div>
 									<div class="footer_contact_list">
 										<ul>
-											<li>Office Landline: +44 5567 32 664 567</li>
+											<li>Office Landline: +977 9846354654</li>
 											<li>Mobile: +44 5567 89 3322 332</li>
 										</ul>
 									</div>
