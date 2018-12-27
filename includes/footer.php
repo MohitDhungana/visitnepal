@@ -28,7 +28,7 @@
 									<div class="footer_contact_title">come & drop by</div>
 									<div class="footer_contact_list">
 										<ul style="max-width:190px">
-											<li>4124 Barnes Street, Sanford, FL 32771</li>
+											<li>New-Baneshwor, Kathmandu, Nepal</li>
 										</ul>
 									</div>
 								</div>
