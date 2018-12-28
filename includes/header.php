@@ -37,7 +37,7 @@
 										<li><a href="contact.html">Contact</a></li>
 									</ul>
 								</nav>
-								<div class="header_phone ml-auto">Call us: +977 9846354654</div>
+								<!-- <div class="header_phone ml-auto">Call us: +977 9846354654</div> -->
 
 								<!-- Hamburger -->
 
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="header_social d-flex flex-row align-items-center justify-content-start">
+			<!-- <div class="header_social d-flex flex-row align-items-center justify-content-start">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
 					<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
 					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -59,5 +59,5 @@
 					<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
 					<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 				</ul>
-			</div>
+			</div> -->
 		</header>

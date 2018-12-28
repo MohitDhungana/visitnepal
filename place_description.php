@@ -3,6 +3,7 @@
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/full-slider.css" rel="stylesheet">
+<link href="css/subin.css" rel="stylesheet">
 
 		
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -54,50 +55,61 @@
 
 		<div class="destinations" id="destinations">
 			<div class="container">
-				<div class="row">
-					<div class="col text-center">
+				<!-- <div class="row">
+					<div class="col text-center"> -->
 						<!-- <div class="section_subtitle">simply amazing places</div> -->
-						<div class="section_title">
+						<!-- <div class="section_title">
 							<h2>Place ko naam</h2>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="row destinations_row">
 					<div class="col">
-						<div class="destinations_container item_grid">
-			<?php 
+						<div class="col-md-8">
+					<?php 
+				if (isset($_GET['place_id'])) {
+					$the_place_id = $_GET['place_id'];
+				}
 
-		$query = "SELECT * FROM places";
-		$select_all_places = mysqli_query($connection, $query);
-		while ($row = mysqli_fetch_assoc($select_all_places)) {
-			$place_id = $row['id'];
-			$place_name = $row['name'];
-			$place_location = $row['location'];
-			$place_description = $row['description'];
-			$place_image = $row['place_image'];
+				$places_query = "SELECT * FROM places WHERE id={$the_place_id}";
+				$select_all_places = mysqli_query($connection, $places_query);
+
+				$feature_query = "SELECT * FROM features WHERE places_id={$the_place_id}";
+				$select_all_features = mysqli_query($connection, $feature_query);
+
+				$row_feature = mysqli_fetch_assoc($select_all_features);
+				$feature_id = $row_feature['id'];
+				$feature_title = $row_feature['title'];
+				$feature_desc = $row_feature['description'];
+
+
+				while ($row = mysqli_fetch_assoc($select_all_places)) {
+					$place_id = $row['id'];
+					$place_name = $row['name'];
+					$place_location = $row['location'];
+					$place_description = $row['description'];
+					$place_image = $row['place_image'];
 
 
 
-
-
-		}
-
-		?>
+					?>
 
 							<!-- Destination -->
 							<div class="destination item">
 								<div class="destination_image">
-									<img src="images/<?php echo ($place_image) ?>" alt="" height="250" width="900">
+								<div class="destination_title"><a href="destinations.html"><?php echo ($place_name) ?></a></div>
+
+									<img src="images/<?php echo ($place_image) ?>" alt="" height="250" width="1000">
 								</div>
 								<div class="destination_content">
-									<div class="destination_title"><a href="destinations.html"><?php echo ($place_name) ?></a></div>
 									<!-- <div class="destination_subtitle">
 										<p>Nulla pretium tincidunt felis, nec.</p>
 									</div> -->
-									<div class="destination_price">From $679</div>
+									<div class="cities"><p><?php echo ($place_description) ?></p></div>
 								</div>
 							</div>
-	
+				<?php 
+		} ?>
 						</div>
 					</div>
 				</div>

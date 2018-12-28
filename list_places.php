@@ -66,7 +66,7 @@
 								<div class="destination_list">
 									
 										<p><?php echo ($place_description) . "....." ?></p>
-										<div class="button load_more_button"><a href="place_description.php">see more</a></div>
+										<div class="button load_more_button"><a href="place_description.php?place_id=<?php echo ($place_id) ?>">see more</a></div>
 										<!-- <li>All Inclusive</li>
 										<li>Flight tickets included</li>
 										<li>Guided visits</li> -->
