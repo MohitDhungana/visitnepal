@@ -94,6 +94,7 @@ $place_image = $row['place_image'];
 				
 				</div>
 		</div>
+		<?php include "maps.php" ?>
 	</div>
 
 <!-- Testimonials -->

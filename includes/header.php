@@ -33,7 +33,7 @@
 										<li class="active"><a href="index.php">Home</a></li>
 										<li><a href="list_places.php">Places</a></li>
 										<li><a href="list_all_package.php">Packages</a></li>
-										<li><a href="#aboutus">About us</a></li>
+										<li><a href="list_sports.php">Sports</a></li>
 										<!-- <li><a href="contact.html">Contact</a></li> -->
 									</ul>
 								</nav>

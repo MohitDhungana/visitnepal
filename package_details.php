@@ -1,11 +1,4 @@
-<!--   <?php 
-         if (isset($_SESSION['deleted'])) {
-            echo "<div class='alert alert-success' id='success-div'>
-            <span class='glyphicon glyphicon-exclamation-sign' aria-hidden= 'true' > users declined sucessfully </span>
-          </div>";
-           unset($_SESSION['deleted']);
-          }
-         ?>  -->
+
     
   
 <!DOCTYPE html>
@@ -21,6 +14,9 @@
                   input.hidden {
     position: absolute;
     left: -9999px;
+}
+.center_garne{
+  text-align="center";
 }
 
 #profile-image1 {
@@ -56,18 +52,19 @@
 <body >
 
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
-    </ul>
-  </div>
-</nav>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.php">Visit Nepal</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.php">Home</a></li>
+                <li><a href="list_all_package.php">Packages</a></li>
+                <li><a href="list_places.php">Places</a></li>
+                <li><a href="list_sports.php">Sports</a></li>
+                <!-- <li><a href="#">Contact us</a></li> -->
+            </ul>
+        </div>
+    </nav>
 <br>
 <br>
 <br>
@@ -79,15 +76,15 @@
        <div class="col-md-7 " align="center">
 
 <div class="panel panel-default" align="center">
-  <div class="panel-heading" align="center">  <h4 align="center">User Profile</h4></div>
+  <div class="panel-heading" align="center">  <h4 align="center">Package Info</h4></div>
    <div class="panel-body" align="center">
        
     <div class="box box-info" align="center">
         
             <div class="box-body" align="center">
-                     <div class="col-sm-6"align="center">
+                     <!-- <div class="col-sm-6"align="center"> -->
                 
-                     <div  align="center"> <img src="<?= '../image-upload/'.$res['image']?>" class="img-circle" alt="Cinque Terre" width="200" height="200" > 
+                     <!-- <div  align="center"> <img src="images/team_1." class="img-circle" alt="Cinque Terre" width="200" height="200" >  -->
                 
               
                 <!--Upload Image Js And Css-->
@@ -98,27 +95,60 @@
                 
                      
                      
-                     </div>
+                     <!-- </div> -->
               
-              <br>
+              <!-- <br> -->
     
               <!-- /input-group -->
-            </div>
+            <!-- </div> -->
             <div class="col-sm-6">
-            <h4 style="color:#00b1b1; font-size: 30px;"><strong><?= $res['name']?></strong></h4></span>
-              <span><p style="font-size: 20px;"><?= $res['user_type']?></p></span>            
+              <?php 
+                include "includes/db.php" ?>
+              <?php
+
+                if (isset($_GET['package_id'])) {
+                    $the_package_id = $_GET['package_id'];
+                }
+                $the_package_id = $_GET['package_id'];
+
+                $package_query = "SELECT * FROM package WHERE id={$the_package_id}";
+                $select_package = mysqli_query($connection, $package_query);
+
+                $row = mysqli_fetch_assoc($select_package);
+                $package_id = $row['id'];
+                $package_name = $row['name'];
+                $package_duration = $row['duration'];
+                $package_price = $row['price'];
+                $package_destination = $row['destinations'];
+                $package_inclusion = $row['inclusions'];
+                $package_company_id = $row['companies_id'];
+
+                $company_query = "SELECT * FROM companies WHERE id={$package_company_id}";
+                $select_company = mysqli_query($connection, $company_query);
+
+                $row_company = mysqli_fetch_assoc($select_company);
+                $company_name = $row_company['name'];
+
+
+
+
+                ?>
+              <!-- name -->
+            <h4 class="center_garne" style="color:#00b1b1; font-size: 30px; text-align: center;"><strong><?php echo ($package_name) ?></strong></h4></span>
+            <!-- role -->
+              <!-- <span><p style="font-size: 20px;">fghdhdh</p></span>             -->
             </div>
-            <div class="clearfix"></div>
+            <div align="center" class="clearfix"></div>
             <hr style="margin:5px 0 5px 0;">
             <ul class="list-group" style="font-size: 120%;"  >
-                          <li class="list-group-item"><strong>Username :</strong><?//= $res['name']?><?echo "name";?></li>
+                          <li class="list-group-item"><strong>Company Name: </strong><?php echo ($company_name) ?></li>
                           <li class="list-group-item list-group-item-success"></li>
-                           <li class="list-group-item"><strong>email :</strong>  <?//= $res['email']?><?echo "email";?></li>
+                           <li class="list-group-item"><strong>Destinations: </strong><?php echo ($package_destination) ?></li>
                           <li class="list-group-item list-group-item-info"></li>
-                          <li class="list-group-item"><strong>user type : </strong> <?//= $res['user_type']?> <?echo "name";?></li>
+                          <li class="list-group-item"><strong>Price: </strong>$ <?php echo ($package_price) ?></li>
                           <li class="list-group-item list-group-item-warning"></li>
 
-                          <li class="list-group-item"><strong>Address : </strong> <?//= $res['address']?><?echo "name";?></li>
+                          <li class="list-group-item"><strong>Inclusions: </strong><?php echo ($package_inclusion) ?></li>
                           <li class="list-group-item list-group-item-danger"></li>
                           </ul>
                           <form method="POST">
@@ -138,7 +168,7 @@
 
         </div>
        <div class="modal-footer">
-          <a href="approved-user.php" button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</a>
+          <a href="index.php" button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</a>
           <script>
             
           </script>
