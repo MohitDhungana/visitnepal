@@ -115,7 +115,7 @@
                                     $place_id = $row['id'];
                                     $place_name = $row['name'];
                                     $place_location = $row['location'];
-                                    $place_description = $row['description'];
+                                    $place_description = substr($row['description'], 0, 200);
                                     $place_image = $row['place_image'];
 
                                     ?>
@@ -133,9 +133,9 @@
 									</ul>
 								</div>
 								<div class="news_post_text">
-									<p><?php echo ($place_description) ?></p>
+									<p><?php echo ($place_description) . "................" ?></p>
 								</div>
-								<div class="news_post_link"><a href="#">Read More</a></div>
+								<div class="news_post_link"><a href="place_description.php?place_id=<?php echo ($place_id) ?>">Read More</a></div>
 							</div>
 						</div>
 
@@ -150,87 +150,46 @@
 					
 				</div>
 
+                
 				<!-- News Sidebar -->
 				<div class="col-lg-4">
 					<div class="news_sidebar">
 
+
 						<!-- Categories -->
 						<div class="categories">
-							<div class="sidebar_title">Categories</div>
+							<div class="sidebar_title">Places</div>
 							<div class="sidebar_list">
 								<ul>
-									<li><a href="#"><div class="d-flex flex-row align-items-start justify-content-start">Travels<span class="ml-auto">(09)</span></div></a></li>
-									<li><a href="#"><div class="d-flex flex-row align-items-start justify-content-start">Organization<span class="ml-auto">(12)</span></div></a></li>
-									<li><a href="#"><div class="d-flex flex-row align-items-start justify-content-start">Tips & Tricks<span class="ml-auto">(16)</span></div></a></li>
-									<li><a href="#"><div class="d-flex flex-row align-items-start justify-content-start">Uncategorized<span class="ml-auto">(22)</span></div></a></li>
+                                <?php 
+
+                                $query = "SELECT * FROM places";
+                                $select_all_places = mysqli_query($connection, $query);
+                                while ($row = mysqli_fetch_assoc($select_all_places)) {
+                                    $place_id = $row['id'];
+                                    $place_name = $row['name'];
+                                    $place_location = $row['location'];
+                                    $place_description = substr($row['description'], 0, 100);
+                                    $place_image = $row['place_image'];
+
+
+
+
+
+
+
+
+                                    ?>
+									<li><a href="place_description.php?place_id=<?php echo ($place_id) ?>"><div class="d-flex flex-row align-items-start justify-content-start"><?php echo ($place_name) ?></div></a></li>
+                                <?php 
+                            } ?>
 								</ul>
 							</div>
 						</div>
 
 						<!-- Latest News -->
-						<div class="latest">
-							<div class="sidebar_title">Latest News</div>
-							<div class="latest_container">
-								
-								<!-- Latest Post -->
-								<div class="latest_post d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_post_image"><img src="images/latest_1.jpg" alt=""></div>
-									<div class="latest_post_content">
-										<div class="latest_post_date d-flex flex-row align-items-end justify-content-start">
-											<div class="latest_post_day">02</div>
-											<div class="latest_post_month">june</div>
-										</div>
-										<div class="latest_post_title"><a href="#">Best tips to travel light</a></div>
-										<div class="latest_post_text"><p>Pellentesque sit amet..</p></div>
-									</div>
-								</div>
+						
 
-								<!-- Latest Post -->
-								<div class="latest_post d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_post_image"><img src="images/latest_2.jpg" alt=""></div>
-									<div class="latest_post_content">
-										<div class="latest_post_date d-flex flex-row align-items-end justify-content-start">
-											<div class="latest_post_day">02</div>
-											<div class="latest_post_month">june</div>
-										</div>
-										<div class="latest_post_title"><a href="#">Best tips to travel light</a></div>
-										<div class="latest_post_text"><p>Pellentesque sit amet..</p></div>
-									</div>
-								</div>
-
-								<!-- Latest Post -->
-								<div class="latest_post d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_post_image"><img src="images/latest_3.jpg" alt=""></div>
-									<div class="latest_post_content">
-										<div class="latest_post_date d-flex flex-row align-items-end justify-content-start">
-											<div class="latest_post_day">02</div>
-											<div class="latest_post_month">june</div>
-										</div>
-										<div class="latest_post_title"><a href="#">Best tips to travel light</a></div>
-										<div class="latest_post_text"><p>Pellentesque sit amet..</p></div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-
-						<div class="travello">
-							<div class="background_image" style="background-image:url(images/travello.jpg)"></div>
-							<div class="travello_content">
-								<div class="travello_content_inner">
-									<div></div>
-									<div></div>
-								</div>
-							</div>
-							<div class="travello_container">
-								<a href="#">
-									<div class="d-flex flex-column align-items-center justify-content-end">
-										<span class="travello_title">Get a 20% Discount</span>
-										<span class="travello_subtitle">Buy Your Vacation Online Now</span>
-									</div>
-								</a>
-							</div>
-						</div>
 						
 					</div>
 				</div>

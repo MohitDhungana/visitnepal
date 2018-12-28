@@ -121,14 +121,14 @@
 							<!-- Destination -->
 							<div class="destination item">
 								<div class="destination_image">
-									<img src="images/<?php echo ($place_image) ?>" alt="" height="250" width="900">
+									<a href="place_description.php?place_id=<?php echo ($place_id) ?>"><img src="images/<?php echo ($place_image) ?>" alt="" height="250" width="900" ></a>
 								</div>
 								<div class="destination_content">
 									<div class="destination_title"><a href="destinations.html"><?php echo ($place_name) ?></a></div>
 									<!-- <div class="destination_subtitle">
 										<p>Nulla pretium tincidunt felis, nec.</p>
 									</div> -->
-									<div class="destination_price">From $679</div>
+									<!-- <div class="destination_price">From $679</div> -->
 								</div>
 							</div>
 		<?php 
