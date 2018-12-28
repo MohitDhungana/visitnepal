@@ -8,31 +8,12 @@
 	<!-- Home -->
 
 	<div class="home">
-		<div class="background_image" style="background-image:url(images/destinations.jpg)"></div>
+		<div class="background_image" style="background-image:url(images/wings.jpg)"></div>
 	</div>
 
 	<!-- Search -->
 
-	<div class="home_search">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="home_search_container">
-							<div class="home_search_title">Search for your trip</div>
-							<div class="home_search_content">
-								<form action="#" class="home_search_form" id="home_search_form">
-									<div class="d-flex flex-lg-row  justify-content-lg-between justify-content-start">
-										<input type="text" class="col-lg" placeholder="Search" required="required">
-										<span class="input-group-btn">
-											<button class="home_search_button">search</button></span>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<?php include "searchbar.php" ?>
 
 	<!-- Destinations -->
 
@@ -80,12 +61,12 @@
 							</div>
 							<div class="destination_content">
 								<div class="destination_title"><a href="#"><?php echo ($place_name) ?></a></div>
-								<div class="destination_subtitle"><p><?php echo ($place_location) ?></p></div>
+								<div class="destination_subtitle"><b><p><?php echo ($place_location) ?></b></p></div>
 								<!-- <div class="destination_price">From $579</div> -->
 								<div class="destination_list">
 									
 										<p><?php echo ($place_description) . "....." ?></p>
-										<div class="button load_more_button"><a href="#">see more</a></div>
+										<div class="button load_more_button"><a href="place_description.php">see more</a></div>
 										<!-- <li>All Inclusive</li>
 										<li>Flight tickets included</li>
 										<li>Guided visits</li> -->
