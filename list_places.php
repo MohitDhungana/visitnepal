@@ -21,7 +21,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<div class="section_subtitle">simply amazing places</div>
+					<!-- <div class="section_subtitle">simply amazing places</div> -->
 					<div class="section_title"><h2>Popular Destinations</h2></div>
 				</div>
 			</div>

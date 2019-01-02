@@ -24,8 +24,8 @@
   $yo = mysqli_query($connection, $query);
   $row = mysqli_fetch_assoc($yo);
 
-  $longitude = $row['longitude'];
-  $latitude = $row['latitude'];
+  $longitude = $row['latitude'];
+  $latitude = $row['longitude'];
 
 
   ?> 

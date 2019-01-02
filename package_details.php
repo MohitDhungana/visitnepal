@@ -141,7 +141,7 @@
             <div align="center" class="clearfix"></div>
             <hr style="margin:5px 0 5px 0;">
             <ul class="list-group" style="font-size: 120%;"  >
-                          <li class="list-group-item"><strong>Company Name: </strong><?php echo ($company_name) ?></li>
+                          <li class="list-group-item"><strong>Company Name: <a href="company_details.php?companies_id=<?php echo ($package_company_id) ?>"></strong><?php echo ($company_name) ?></a></li>
                           <li class="list-group-item list-group-item-success"></li>
                            <li class="list-group-item"><strong>Destinations: </strong><?php echo ($package_destination) ?></li>
                           <li class="list-group-item list-group-item-info"></li>
